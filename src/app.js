@@ -25,14 +25,14 @@ app.use(express.static(publicDirectory));
 // ---------------------
 app.get("", (req, res) => {
   res.render("index", {
-    title: "Weather App",
+    title: "Időjárás alkalmazás",
     name: "Pónusz Richárd"
   });
 });
 
 app.get("/about", (req, res) => {
   res.render("about", {
-    title: "About me",
+    title: "Rólam",
     name: "Pónusz Richárd"
   });
 });
@@ -40,7 +40,7 @@ app.get("/about", (req, res) => {
 app.get("/weather", (req, res) => {
   if (!req.query.address) {
     res.send({
-      error: "You must provide an address"
+      error: "Kötelező címet megadnia"
     });
   }
 
@@ -65,7 +65,7 @@ app.get("/weather", (req, res) => {
 app.get("/products", (req, res) => {
   if (!req.query.search) {
     res.send({
-      error: "You must provide a search term"
+      error: "Kötezelő keresési paramétert megadnia!"
     });
   }
 
@@ -77,8 +77,8 @@ app.get("/products", (req, res) => {
 
 app.get("/help", (req, res) => {
   res.render("help", {
-    title: "Help",
-    helpText: "I am here to help you, please don't resist.",
+    title: "Segítség",
+    helpText: "Azért jöttem hogy segítsek. Kérem ne álljon ellen.",
     name: "Pónusz Richárd"
   });
 });
@@ -89,17 +89,17 @@ app.get("", (req, res) => {
 
 app.get("/help/*", (req, res) => {
   res.render("404", {
-    title: "About me",
+    title: "Rólam",
     name: "Pónusz Richárd",
-    errorMessage: "Help article not found"
+    errorMessage: "404 - nem található"
   });
 });
 
 app.get("*", (req, res) => {
   res.render("404", {
-    title: "About me",
+    title: "Rólam",
     name: "Pónusz Richárd",
-    errorMessage: "Page not found"
+    errorMessage: "Oldal nem található"
   });
 });
 
